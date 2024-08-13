@@ -15,6 +15,7 @@ class Order extends Model
         'preparing_goods' => 'Đang chuẩn bị hàng',
         'shipping' => 'Đang vận chuyển',
         'delivered' => 'Đã giao hàng',
+        'received' => 'Đã nhận hàng',
         'canceled' => 'Đơn hàng bị hủy',
     ];
     const STATUS_PAYMENT = [

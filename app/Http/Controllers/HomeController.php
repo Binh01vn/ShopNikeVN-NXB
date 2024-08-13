@@ -53,4 +53,10 @@ class HomeController extends Controller
         // dd($model);
         return view('client.account.hoaDonDetail', compact('model', 'order'));
     }
+    public function confirmOrder(string $id)
+    {
+        $model = Order::query()->findOrFail($id);
+        $model->update(['status_order' => 'received']);
+        return back();
+    }
 }

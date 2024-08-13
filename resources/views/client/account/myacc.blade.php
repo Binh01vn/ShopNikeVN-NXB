@@ -102,6 +102,8 @@
                                                                 echo 'Đang vận chuyển';
                                                             } elseif ($item->status_order == 'delivered') {
                                                                 echo 'Đã giao hàng';
+                                                            } elseif ($item->status_order == 'received') {
+                                                                echo 'Đã nhận hàng';
                                                             } elseif ($item->status_order == 'canceled') {
                                                                 echo 'Đơn hàng bị hủy';
                                                             }

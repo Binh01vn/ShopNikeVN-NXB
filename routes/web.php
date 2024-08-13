@@ -26,6 +26,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/myAcc', [HomeController::class, 'myAcc'])->name('auth.acc')->middleware(['auth']);
 Route::get('/hdDetail/{id}', [HomeController::class, 'hdDetail'])->name('hd.hdDetail');
+Route::get('/confirmOrder/{id}', [HomeController::class, 'confirmOrder'])->name('hd.confirmOrder');
 
 Route::resource('products', Productontroller::class);
 // Auth::routes();

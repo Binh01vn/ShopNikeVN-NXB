@@ -69,6 +69,9 @@
                                         @if ($item->status_order == 'delivered')
                                             Đã giao hàng
                                         @endif
+                                        @if ($item->status_order == 'received')
+                                            Đã nhận hàng
+                                        @endif
                                         @if ($item->status_order == 'canceled')
                                             Đơn hàng bị hủy
                                         @endif

@@ -65,7 +65,8 @@
                                                 <tr>
                                                     <td colspan="3"><strong>Tổng đơn hàng:
                                                         </strong>
-                                                        {{ number_format((int) $order->total_price, 0, ',', '.') }}(VND)</td>
+                                                        {{ number_format((int) $order->total_price, 0, ',', '.') }}(VND)
+                                                    </td>
                                                     <td colspan="2"><strong>Ngày đặt hàng:
                                                         </strong>{{ $order->created_at }}</td>
                                                 </tr>
@@ -83,6 +84,8 @@
                                                                 echo 'Đang vận chuyển';
                                                             } elseif ($order->status_order == 'delivered') {
                                                                 echo 'Đã giao hàng';
+                                                            } elseif ($order->status_order == 'received') {
+                                                                echo 'Đã nhận hàng';
                                                             } elseif ($order->status_order == 'canceled') {
                                                                 echo 'Đơn hàng bị hủy';
                                                             }
@@ -95,6 +98,16 @@
                                                             : '<strong class="text-success">Đã thanh toán</strong>' !!}
                                                     </td>
                                                 </tr>
+                                                @if ($order->status_order != 'received' && $order->status_order != 'canceled' && $order->status_order != 'pending')
+                                                    <tr>
+                                                        <td colspan="5">
+                                                            <a href="{{ route('hd.confirmOrder', $order->id) }}"
+                                                                class="kenne-btn kenne-btn_sm">
+                                                                <span>Đã nhận được hàng</span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                @endif
                                             </tbody>
                                         </table>
                                     </div>
